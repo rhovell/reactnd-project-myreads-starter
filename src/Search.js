@@ -10,34 +10,33 @@ class SearchForm extends Component {
   static propTypes = {
     books: PropTypes.array.isRequired
   }
+
   state = {
     query: '',
-    searchResults: [],
-    shelf: ''
+    searchResults: []
   }
+
   updateQuery = (query) => {
   this.setState({ query })
   this.updateResults(query)
   }
+
   updateResults = (query) => {
     if(query) {
-    BooksAPI.search(query)
-    .then((searchResults) => {
-      if (searchResults.error) {
+      BooksAPI.search(query).then((searchResults) => {
+      this.setState({ searchResults : searchResults })
+      }, (error) => {
         this.setState({ searchResults : [] })
-      } else {
-        this.setState({ searchResults : searchResults })
-      }
-
-      })
+        })
     } else {
       this.setState({ searchResults : [] })
-}
+      }
   }
+
   render(){
 
-    return (
-      <div className="search-books">
+      return (
+        <div className="search-books">
         <div className="search-books-bar">
         <Link className="close-search" to="/">Close Search</Link>
             <div className="search-books-input-wrapper">
@@ -50,20 +49,20 @@ class SearchForm extends Component {
         </div>
         <div className="search-books-results">
         <ol className="books-grid">
-        {
+        {this.state.searchResults.length > 0 ?
           this.state.searchResults.map((searchResults) => (
-
           <li key={searchResults.id}>
             <Book book={searchResults}
               sortBooks={this.props.sortBooks}
             />
           </li>
         ))
+      : <li>No Results Found</li>
       }
-          </ol>
-        </div>
+        </ol>
       </div>
-    )
+    </div>
+  )
   }
 }
 

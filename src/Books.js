@@ -17,16 +17,16 @@ class Book extends Component {
           }}>
         </div>
         <div className="book-shelf-changer" title="Move Book">
-        <select onChange={(event) => this.props.sortBooks(this.props.book, event.target.value)}
-	                value={this.props.book.shelf}>
-        <option value="move" disabled>Move to...</option>
-        <option value="currentlyReading">Currently Reading</option>
-        <option value="wantToRead">Want to Read</option>
-        <option value="read">Read</option>
-        <option value="none">None</option>
-        </select>
+          <select onChange={(event) => this.props.sortBooks(this.props.book, event.target.value)}
+  	                value={this.props.book.shelf}>
+            <option value="move" disabled>Move to...</option>
+            <option value="currentlyReading">Currently Reading</option>
+            <option value="wantToRead">Want to Read</option>
+            <option value="read">Read</option>
+            <option value="none">None</option>
+          </select>
         </div>
-        </div>
+      </div>
     <div className="book-title">{this.props.book.title}</div>
     <div className="book-authors">
       {this.props.book.authors ? this.props.book.authors.join(", ") : ''}
