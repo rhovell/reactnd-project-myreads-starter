@@ -122,6 +122,7 @@ body, .app {
 .book {
   width: 140px;
 }
+.see-more,
 .book-title,
 .book-authors {
   font-size: 0.8em;
@@ -129,10 +130,13 @@ body, .app {
 .book-title {
   margin-top: 10px;
 }
+.see-more,
 .book-authors {
   color: #999;
 }
-
+.see-more {
+  
+}
 .book-top {
   position: relative;
   height: 200px;

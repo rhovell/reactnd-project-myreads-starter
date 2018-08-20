@@ -4,7 +4,6 @@ import * as BooksAPI from './BooksAPI'
 import './App.css'
 import Shelves from './Shelves'
 import SearchForm from './Search'
-import Book from './Books'
 
 class BooksApp extends Component {
   state = {
@@ -43,6 +42,5 @@ class BooksApp extends Component {
     )
   }
 }
-
 
 export default BooksApp

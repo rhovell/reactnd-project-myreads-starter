@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 
 class Book extends Component {
 
   render(){
-    const book = this.props.books;
-    const sortBooks = this.props.sortBooks;
 
     return (
     <div className="book">
       <div className="book-top">
-        <div className="book-cover" style={{
-          backgroundImage: `url(${this.props.book.imageLinks.thumbnail})`,
-          width: '100%',
-          height: '100%'
-        }}></div>
-
-        <div className="book-shelf-changer">
+        <div className="book-cover"
+        title={this.props.book.title}
+          style={{
+            backgroundImage: `url(${this.props.book.imageLinks.thumbnail})`,
+            alt: 'Book Cover',
+            width: '100%',
+            height: '100%'
+          }}>
+        </div>
+        <div className="book-shelf-changer" title="Move Book">
         <select onChange={(event) => this.props.sortBooks(this.props.book, event.target.value)}
 	                value={this.props.book.shelf}>
         <option value="move" disabled>Move to...</option>
@@ -26,9 +26,12 @@ class Book extends Component {
         <option value="none">None</option>
         </select>
         </div>
-      </div>
+        </div>
     <div className="book-title">{this.props.book.title}</div>
-    <div className="book-authors">{this.props.book.authors}</div>
+    <div className="book-authors">
+      {this.props.book.authors ? this.props.book.authors.join(", ") : ''}
+    </div>
+    <a href={this.props.book.previewLink} target="_blank" className="see-more" title="See Details (Opens a new tab)">See Details</a>
   </div>
   )
   }

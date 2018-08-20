@@ -1,37 +1,41 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import * as BooksAPI from './BooksAPI'
 import PropTypes from 'prop-types'
 import escapeRegExp from 'escape-string-regexp'
 import Book from './Books'
 import sortBy from 'sort-by'
+import * as BooksAPI from './BooksAPI'
 
 class SearchForm extends Component {
   static propTypes = {
-    books: PropTypes.array.isRequired,
-    sortBooks: PropTypes.func.isRequired
+    books: PropTypes.array.isRequired
   }
   state = {
     query: '',
-    searchResults: []
+    searchResults: [],
+    shelf: ''
   }
   updateQuery = (query) => {
   this.setState({ query })
-}
-clearQuery = (query) => {
-  this.setState({ query: ''})
-}
-  render(){
-      const { query } = this.state
-      const { books, sortBooks } = this.props
-    let searchResults
-    if(query){
-        const match = new RegExp(escapeRegExp(query), 'i')
-        searchResults = books.filter((book) => match.test(book.title) || match.test(book.authors))
+  this.updateResults(query)
+  }
+  updateResults = (query) => {
+    if(query) {
+    BooksAPI.search(query)
+    .then((searchResults) => {
+      if (searchResults.error) {
+        this.setState({ searchResults : [] })
+      } else {
+        this.setState({ searchResults : searchResults })
+      }
+
+      })
     } else {
-      searchResults = books
-    }
-    searchResults.sort(sortBy('title'))
+      this.setState({ searchResults : [] })
+}
+  }
+  render(){
+
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -45,15 +49,18 @@ clearQuery = (query) => {
             </div>
         </div>
         <div className="search-books-results">
-          <ol className="books-grid">
-          {searchResults.map((book) => (
-            <li key={book.id}>
-              <Book
-                book={book}
-                sortBooks={this.props.sortBooks}
-              />
-            </li>
-          ))}</ol>
+        <ol className="books-grid">
+        {
+          this.state.searchResults.map((searchResults) => (
+
+          <li key={searchResults.id}>
+            <Book book={searchResults}
+              sortBooks={this.props.sortBooks}
+            />
+          </li>
+        ))
+      }
+          </ol>
         </div>
       </div>
     )
