@@ -135,7 +135,7 @@ body, .app {
   color: #999;
 }
 .see-more {
-  
+
 }
 .book-top {
   position: relative;
@@ -175,4 +175,15 @@ body, .app {
   padding: 20px 10px 0;
   text-align: center;
   font-size: 0.8em;
+}
+
+/* no results display */
+
+.no-results {
+  color: rgb(77, 77, 77);
+  animation: delay 2s ease;
+}
+@keyframes delay {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

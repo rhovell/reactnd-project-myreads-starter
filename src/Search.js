@@ -56,9 +56,7 @@ class SearchForm extends Component {
               sortBooks={this.props.sortBooks}
             />
           </li>
-        ))
-      : <li>No Results Found</li>
-      }
+        )) : <li className="no-results">No Results Found</li>}
         </ol>
       </div>
     </div>
