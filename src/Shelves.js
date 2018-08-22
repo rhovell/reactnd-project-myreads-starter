@@ -36,7 +36,6 @@ class Shelves extends Component {
               </ol>
             </div>
           </div>
-
           <div className="bookshelf">
               <h2 className="bookshelf-title">Want To Read</h2>
               <div className="bookshelf-books">
@@ -53,7 +52,6 @@ class Shelves extends Component {
                 </ol>
               </div>
             </div>
-
             <div className="bookshelf">
               <h2 className="bookshelf-title">Read</h2>
               <div className="bookshelf-books">
@@ -70,7 +68,7 @@ class Shelves extends Component {
                 </ol>
               </div>
             </div>
-
+    
           </div>
         </div>
 

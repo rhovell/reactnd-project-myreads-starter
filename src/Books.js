@@ -19,7 +19,7 @@ class Book extends Component {
         </div>
         <div className="book-shelf-changer" title="Move Book">
           <select onChange={(event) => this.props.sortBooks(this.props.book, event.target.value)}
-  	                value={this.props.book.shelf}>
+  	                value={this.props.book.shelf ? this.props.book.shelf : 'none'}>
             <option value="move" disabled>Move to...</option>
             <option value="currentlyReading">Currently Reading</option>
             <option value="wantToRead">Want to Read</option>
@@ -28,11 +28,11 @@ class Book extends Component {
           </select>
         </div>
       </div>
-    <div className="book-title">{this.props.book.title ? this.props.book.title = this.props.book.title : ''}</div>
+    <div className="book-title">{this.props.book.title ? this.props.book.title : ''}</div>
     <div className="book-authors">
       {this.props.book.authors ? this.props.book.authors.join(", ") : ''}
     </div>
-    <a href={this.props.book.previewLink ? this.props.book.previewLink = this.props.book.previewLink : ''} target="_blank" className="see-more" title="See Details (Opens a new tab)">See Details</a>
+    <a href={this.props.book.previewLink ? this.props.book.previewLink : ''} target="_blank" className="see-more" title="See Details (Opens a new tab)">See Details</a>
   </div>
   )
   }
