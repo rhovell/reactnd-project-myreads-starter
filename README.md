@@ -21,7 +21,8 @@ To get started developing right away:
     ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
     ├── Books.js # Book Component for the app.
     ├── Search.js # Search screen rendering, includes functions for search.
-    ├── Sheleves.js # Main rendering for the app.
+    ├── Shelf-changer.js # Form rendering and functions to change book shelf.
+    ├── Shelves.js # Main rendering for the app.
     ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
     ├── icons # Helpful images for your app. Use at your discretion.
     │   ├── add.svg
