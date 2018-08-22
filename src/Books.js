@@ -11,7 +11,7 @@ class Book extends Component {
         <div className="book-cover"
         title={this.props.book.title}
           style={{
-            backgroundImage: `url(${this.props.book.imageLinks ? this.props.book.imageLinks = this.props.book.imageLinks.thumbnail : "https://via.placeholder.com/140x200?text=Book+Cover"})`,
+            backgroundImage: `url(${this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : "https://via.placeholder.com/140x200?text=Book+Cover"})`,
             alt: 'Book Cover',
             width: '100%',
             height: '100%'
