@@ -28,11 +28,11 @@ class Book extends Component {
           </select>
         </div>
       </div>
-    <div className="book-title">{this.props.book.title}</div>
+    <div className="book-title">{this.props.book.title ? this.props.book.title = this.props.book.title : ''}</div>
     <div className="book-authors">
       {this.props.book.authors ? this.props.book.authors.join(", ") : ''}
     </div>
-    <a href={this.props.book.previewLink} target="_blank" className="see-more" title="See Details (Opens a new tab)">See Details</a>
+    <a href={this.props.book.previewLink ? this.props.book.previewLink = this.props.book.previewLink : ''} target="_blank" className="see-more" title="See Details (Opens a new tab)">See Details</a>
   </div>
   )
   }
