@@ -18,6 +18,9 @@ class BooksApp extends Component {
     BooksAPI.update(book, shelf)
     BooksAPI.getAll().then((books) => {
       this.setState({ books : books })
+    }).catch(function(error) {
+      this.setState({ books: [] })
+      console.log('Error on book request')
     })
   }
 
