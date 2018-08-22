@@ -2,15 +2,13 @@ import React, { Component } from 'react'
 import ShelfChanger from './Shelf-changer'
 
 class Book extends Component {
-
-
   render(){
 
     return (
     <div className="book">
       <div className="book-top">
         <div className="book-cover"
-        title={this.props.book.title}
+        title={this.props.book.title ? this.props.book.title : ''}
           style={{
             backgroundImage: `url(${this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : "https://via.placeholder.com/140x200?text=Book+Cover"})`,
             alt: 'Book Cover',

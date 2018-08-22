@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import escapeRegExp from 'escape-string-regexp'
 import Book from './Books'
-import sortBy from 'sort-by'
 import * as BooksAPI from './BooksAPI'
 
 class SearchForm extends Component {
@@ -25,7 +23,7 @@ class SearchForm extends Component {
     if(query) {
       BooksAPI.search(query).then((searchResults) => {
       this.setState({ searchResults : searchResults })
-      }, (error) => {
+    }).catch(function(error) {
         this.setState({ searchResults : [] })
         })
     } else {
@@ -42,7 +40,7 @@ class SearchForm extends Component {
             <div className="search-books-input-wrapper">
             <input type="text"
               placeholder="Search by title or author"
-                value={this.state.query}
+              value={this.state.query ? this.state.query : ''}
               onChange={(event) => this.updateQuery(event.target.value)}
             />
             </div>

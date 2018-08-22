@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import Book from './Books.js'
 
 class ShelfChanger extends Component {
   state = {
     value : 'none'
   }
 
-updateState = (event) => {
-  this.setState({ value: event.target.value})
-}
+  updateState = (event) => {
+    this.setState({ value: event.target.value})
+  }
+
   render(){
     return (
       <div className="book-shelf-changer" title="Move Book">
