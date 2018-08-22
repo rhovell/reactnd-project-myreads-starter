@@ -29,6 +29,7 @@ class Shelves extends Component {
                       <li key={book.id}>
                         <Book book={book}
                           sortBooks={this.props.sortBooks}
+                          updateBooks={this.props.updateBooks}
                         />
                       </li>
                   ))
@@ -45,6 +46,7 @@ class Shelves extends Component {
                         <li key={book.id}>
                           <Book book={book}
                             sortBooks={this.props.sortBooks}
+                            updateBooks={this.props.updateBooks}
                           />
                         </li>
                     ))
@@ -61,6 +63,7 @@ class Shelves extends Component {
                         <li key={book.id}>
                           <Book book={book}
                             sortBooks={this.props.sortBooks}
+                            updateBooks={this.props.updateBooks}
                           />
                         </li>
                     ))
@@ -68,7 +71,7 @@ class Shelves extends Component {
                 </ol>
               </div>
             </div>
-    
+
           </div>
         </div>
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ShelfChanger from './Shelf-changer'
 
 class Book extends Component {
 
@@ -17,16 +18,11 @@ class Book extends Component {
             height: '100%'
           }}>
         </div>
-        <div className="book-shelf-changer" title="Move Book">
-          <select onChange={(event) => this.props.sortBooks(this.props.book, event.target.value)}
-  	                value={this.props.book.shelf ? this.props.book.shelf : 'none'}>
-            <option value="move" disabled>Move to...</option>
-            <option value="currentlyReading">Currently Reading</option>
-            <option value="wantToRead">Want to Read</option>
-            <option value="read">Read</option>
-            <option value="none" default={this.props.book.shelf ? this.props.book.shelf = this.props.book.shelf : this.props.book.shelf = "none"}>None</option>
-          </select>
-        </div>
+        <ShelfChanger
+        books={this.props.book}
+        sortBooks={this.props.sortBooks}
+        updateBooks={this.props.updateBooks}
+        />
       </div>
     <div className="book-title">{this.props.book.title ? this.props.book.title : ''}</div>
     <div className="book-authors">
