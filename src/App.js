@@ -15,15 +15,15 @@ class BooksApp extends Component {
     })
   }
   sortBooks = (book, shelf) => {
-    BooksAPI.update(book, shelf).then(
-    BooksAPI.getAll().then((books) => {
-      this.setState({ books : books })
-    })).catch(function(error) {
+    BooksAPI.update(book, shelf).then(() => {
+      BooksAPI.getAll().then((books) => {
+        this.setState({ books: books })
+      })
+    }).catch(function(error) {
       this.setState({ books: [] })
       console.log('Error on book request')
     })
   }
-
   render() {
     return (
       <div className="app">
