@@ -180,7 +180,8 @@ body, .app {
 
 .no-results {
   color: rgb(77, 77, 77);
-  animation: delay 2s ease;
+  animation: delay 5s ease;
+  text-align: center;
 }
 @keyframes delay {
   from { opacity: 0; }

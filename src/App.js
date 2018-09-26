@@ -18,6 +18,7 @@ class BooksApp extends Component {
     BooksAPI.update(book, shelf).then(() => {
       BooksAPI.getAll().then((books) => {
         this.setState({ books: books })
+        console.log('Book state set with Shelves')
       })
     }).catch(function(error) {
       this.setState({ books: [] })
@@ -40,7 +41,8 @@ class BooksApp extends Component {
           sortBooks={this.sortBooks}
           />
         )}/>
-        {console.log(this.state.books)}
+
+
         </div>
     )
   }
