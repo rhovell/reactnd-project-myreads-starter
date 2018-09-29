@@ -18,7 +18,6 @@ class BooksApp extends Component {
     BooksAPI.update(book, shelf).then(() => {
       BooksAPI.getAll().then((books) => {
         this.setState({ books: books })
-        console.log('Book state set with Shelves')
       })
     }).catch(function(error) {
       this.setState({ books: [] })
@@ -32,6 +31,7 @@ class BooksApp extends Component {
           <SearchForm
           books={this.state.books}
           sortBooks={this.sortBooks}
+          shelf={this.state.books.shelf}
           />
         )}/>
 
@@ -39,10 +39,9 @@ class BooksApp extends Component {
           <Shelves
           books={this.state.books}
           sortBooks={this.sortBooks}
+          shelf={this.state.books.shelf}
           />
         )}/>
-
-
         </div>
     )
   }

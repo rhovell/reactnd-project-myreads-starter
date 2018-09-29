@@ -20,6 +20,7 @@ class Book extends Component {
         <ShelfChanger
           books={this.props.book}
           sortBooks={this.props.sortBooks}
+          shelf={this.props.book.shelf}
           />
       </div>
     <div className="book-title">{this.props.book.title ? this.props.book.title : ''}</div>

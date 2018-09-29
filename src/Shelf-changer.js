@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class ShelfChanger extends Component {
   state = {
-    value: ''
+    value: 'none'
   }
   updateState = (event) => {
     this.setState({ value: event.target.value})
@@ -14,7 +14,7 @@ class ShelfChanger extends Component {
     return (
       <div className="book-shelf-changer" title="Move Book">
           <select onChange={this.updateState}
-                    value={this.props.books.shelf ? this.props.books.shelf : 'none'}>
+                    value={this.props.shelf ? this.props.shelf : this.state.value}>
             <option value="move" disabled>Move to...</option>
             <option value="currentlyReading">Currently Reading</option>
             <option value="wantToRead">Want to Read</option>
